@@ -1,6 +1,7 @@
 package br.com.crawler.business;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.pengrad.telegrambot.TelegramBot;
@@ -30,7 +31,9 @@ public class NadaPraFazerTelegramCommand implements TelegramCommand {
 			
 			this.mrCrawler.execute(new SendChatAction(message.chat().id(), ChatAction.typing));
 			
-			List<String> keywords = Arrays.asList(message.text().replace("/nadaprafazer", "").trim().split(";"));
+			String params = message.text().replace("/nadaprafazer", "").trim();
+		
+			List<String> keywords = params.isEmpty() ? Collections.emptyList() : Arrays.asList(params.split(";"));
 			
 			List<Subreddit> subreddits = this.redditService.getSubredditsData(keywords);
 			
