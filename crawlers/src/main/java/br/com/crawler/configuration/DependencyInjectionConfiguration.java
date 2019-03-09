@@ -10,12 +10,12 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.GetUpdates;
 
 import br.com.crawler.business.MrCrawlerTelegramThread;
-import br.com.crawler.business.NadaPraFazerTelegramCommand;
-import br.com.crawler.business.StartTelegraCommand;
-import br.com.crawler.business.TelegramCommand;
 import br.com.crawler.model.CrawlerProvider;
 import br.com.crawler.model.JSoupCrawlerImpl;
 import br.com.crawler.services.RedditCrawlerService;
+import br.com.crawler.telegram.commands.NadaPraFazerTelegramCommand;
+import br.com.crawler.telegram.commands.StartTelegraCommand;
+import br.com.crawler.telegram.commands.TelegramCommand;
 
 @Configuration
 public class DependencyInjectionConfiguration {

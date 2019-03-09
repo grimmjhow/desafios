@@ -1,6 +1,6 @@
 package br.com.crawler.configuration;
 
-import br.com.crawler.business.TelegramCommand;
+import br.com.crawler.telegram.commands.TelegramCommand;
 
 public class TelegramCommandFactory {
 	

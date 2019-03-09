@@ -1,4 +1,4 @@
-package br.com.crawler.business;
+package br.com.crawler.telegram.commands;
 
 import com.pengrad.telegrambot.model.Message;
 

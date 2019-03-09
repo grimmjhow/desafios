@@ -1,4 +1,4 @@
-package br.com.crawler.business;
+package br.com.crawler.telegram.commands;
 
 import java.util.Arrays;
 import java.util.Collections;
