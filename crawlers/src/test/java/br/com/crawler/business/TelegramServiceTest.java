@@ -28,34 +28,5 @@ public class TelegramServiceTest {
 	public void integratedTest() {
 		spyTelegramService.getUpdatesFromTelegram();
 	}
-	
-	@Test
-	public void testebot() {
 		
-		TelegramBot bot = new TelegramBot("680282926:AAF43kzFkWlpPiJfdXbB1FW1uC73CyMydAE");
-		
-		int m = 0;
-		
-		while(true) {
-			
-			GetUpdatesResponse newMessages = bot.execute(new GetUpdates().limit(100).offset(m));
-			
-			List<Update> updates = newMessages.updates();
-			
-			for (Update update : updates) {
-				
-				m = update.updateId()+1;
-				
-				Message message = update.message();
-				String text = message.text();
-				
-				if(text.equalsIgnoreCase("laisla")) {
-					bot.execute(new SendMessage(update.message().chat().id(),"Quer casar comigo pepa?"));
-					bot.execute(new SendMessage(update.message().chat().id(),"Eu te amo!"));
-				}
-				
-			}
-		}
-	}
-	
 }

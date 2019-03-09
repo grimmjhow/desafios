@@ -35,11 +35,6 @@ public class DependencyInjectionConfiguration {
 		return new GetUpdates().limit(100);
 	}
 	
-	/*@Bean
-	public TelegramService telegramService(TelegramBot mrCrawler,RedditCrawlerService redditService) {
-		return new TelegramService(mrCrawler,redditService);
-	}*/
-	
 	@Bean
 	public Map<String, TelegramCommand> commandTelegram(TelegramBot mrCrawler,RedditCrawlerService redditService){
 
