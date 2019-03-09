@@ -39,9 +39,6 @@ public class CrawlerApplication implements ApplicationRunner{
 		
 		if(!nonOptionArgs.isEmpty()) {
 			
-			boolean telegram = nonOptionArgs.stream().anyMatch(p -> p.equals("/NadaPraFazer"));
-			nonOptionArgs.remove("/NadaPraFazer");
-
 			List<String> subreddits =
 			nonOptionArgs.stream()
 						 .map(e -> e.split(":"))
