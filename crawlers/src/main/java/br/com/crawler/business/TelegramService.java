@@ -1,6 +1,5 @@
 package br.com.crawler.business;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -13,14 +12,13 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
 
-import br.com.crawler.services.RedditCrawlerService;
-
 @Service
 public class TelegramService {
 	
 	private static final boolean READ_UPDATES_FOREVER = true;
 
-	private final Map<String, TelegramCommand> command = new HashMap<>();
+	@Autowired
+	private Map<String, TelegramCommand> commandTelegram;
 	
 	@Autowired
 	private TelegramBot mrCrawler;
@@ -30,9 +28,7 @@ public class TelegramService {
 	
 	private UnknowTelegramCommand defaultCommand;
 	
-	public TelegramService(TelegramBot mrCrawler,RedditCrawlerService redditService) {
-		this.command.put("/nadaprafazer", new NadaPraFazerTelegramCommand(redditService,mrCrawler));
-		this.command.put("/start", new StartTelegraCommand(mrCrawler));
+	public TelegramService(TelegramBot mrCrawler) {
 		this.defaultCommand = new UnknowTelegramCommand(mrCrawler);
 	}
 	
@@ -55,14 +51,14 @@ public class TelegramService {
 				
 				String command = extractCommand(message.text());
 				
-				this.command.getOrDefault(command,defaultCommand)
+				this.commandTelegram.getOrDefault(command,defaultCommand)
 							.execute(message);
 			}
 		}
 		
 	}
 	
-	public String extractCommand(String command) {
+	protected String extractCommand(String command) {
 		
 		if(StringUtils.isNotBlank(command) && StringUtils.startsWith(command, "/"))
 			return StringUtils.split(command," ")[0];
