@@ -46,8 +46,7 @@ public class TelegramServiceTest {
 	@MockBean
 	private Update mockUpdate;
 	
-	@MockBean
-	private GetUpdates mockUpdatesLimit100;
+	private GetUpdates mockUpdatesLimit100 = Mockito.mock(GetUpdates.class,Mockito.RETURNS_DEEP_STUBS);
 	
 	@Before
 	public void setup() {
