@@ -36,7 +36,7 @@ public class JSoupCrawlerImpl implements CrawlerProvider {
 				   .collect(Collectors.toList());
 			
 		} catch (IOException ex) {
-			//When something goes wrong trying get the page elements
+			//When something goes wrong
 			ex.printStackTrace();
 			
 			return Collections.emptyList();

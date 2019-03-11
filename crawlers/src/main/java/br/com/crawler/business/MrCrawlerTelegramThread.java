@@ -6,11 +6,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class MrCrawlerTelegramThread extends Thread {
 
+	private static final boolean READ_UPDATES_FOREVER = true;
+	
 	@Autowired
 	private TelegramService telegramService;
 
 	@Override
 	public void run() {
-		telegramService.getUpdatesFromTelegram();
+		
+		while(READ_UPDATES_FOREVER)
+			telegramService.startingReadTelegramChat();
+		
 	}
 }

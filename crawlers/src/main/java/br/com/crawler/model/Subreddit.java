@@ -2,7 +2,6 @@ package br.com.crawler.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Subreddit {
 	
@@ -11,9 +10,7 @@ public class Subreddit {
 	
 	public Subreddit(String title, List<RedditData> threads) {
 		this.title = title;
-		this.threads = threads.stream()
-							  .collect(Collectors.toList());
-	
+		this.threads = new ArrayList<>(threads);
 	}
 	
 	public List<RedditData> getThreads() {
@@ -57,6 +54,8 @@ public class Subreddit {
 
 	@Override
 	public String toString() {
+		if(threads.isEmpty())
+			return "Nenhuma Thread bombando para o subreddit: "+this.title;
 		
 		StringBuilder toString = new StringBuilder("Subreddit: ")
 										   .append(title)
@@ -65,7 +64,7 @@ public class Subreddit {
 		for(RedditData reddit : this.threads)
 			toString.append(reddit)
 					.append(System.lineSeparator())
-					.append("---------------------------")
+					.append("------------------------------------------")
 					.append(System.lineSeparator());
 		
 		return

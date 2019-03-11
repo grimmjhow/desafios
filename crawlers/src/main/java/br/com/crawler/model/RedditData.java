@@ -15,10 +15,24 @@ public class RedditData {
 		this.upvotes = Long.parseLong(element.attr("data-score"));
 		this.commentsLink = "https://old.reddit.com".concat(element.attr("data-permalink"));
 		this.subreddit = element.attr("data-subreddit");
-		this.threadLink = this.commentsLink; //element.attr("data-url");
+		this.threadLink = this.commentsLink;
 		this.threadTitle = element.select("p .title").first().text();
 	}
 	
+	/*
+	 * Just for tests!
+	 */
+	protected RedditData(long upvotes, String threadTitle, String subreddit, String commentsLink, String threadLink) {
+		super();
+		this.upvotes = upvotes;
+		this.threadTitle = threadTitle;
+		this.subreddit = subreddit;
+		this.commentsLink = commentsLink;
+		this.threadLink = threadLink;
+	}
+
+
+
 	public long getUpvotes() {
 		return upvotes;
 	}

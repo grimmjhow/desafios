@@ -13,7 +13,7 @@ public class JSoupCrawlerImplTest {
 	@Test
 	public void getThreadsBySubredditNotEmpty() {
 		
-		List<RedditData> threads = jsoup.getThreads("cats");
+		List<RedditData> threads = jsoup.getThreads("AskReddit");
 		
 		assertFalse(threads.isEmpty());
 	}

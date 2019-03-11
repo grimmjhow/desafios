@@ -40,6 +40,7 @@ public class NadaPraFazerTelegramCommand implements TelegramCommand {
 			subreddits.forEach(s -> mrCrawler.execute(new SendMessage(message.chat().id(),s.toString())));
 		
 		} catch (NoSubredditParamException e) {
+			System.out.println(e.getMessage());
 			mrCrawler.execute(new SendMessage(message.chat().id(),e.getMessage()));
 		}
 	}
