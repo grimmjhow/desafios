@@ -50,7 +50,7 @@ public class TelegramService {
 
 	public void startingReadTelegramChat() {
 			
-		GetUpdatesResponse response = this.mrCrawler.execute(updatesLimit100.offset(offset));
+		GetUpdatesResponse response = this.mrCrawler.execute(updatesLimit100.offset(offset).timeout(0));
 		
 		for(Update update : response.updates()) {
 			

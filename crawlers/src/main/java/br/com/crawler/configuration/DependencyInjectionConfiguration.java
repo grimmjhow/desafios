@@ -10,6 +10,7 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.GetUpdates;
 
 import br.com.crawler.business.MrCrawlerTelegramThread;
+import br.com.crawler.business.TelegramService;
 import br.com.crawler.model.CrawlerProvider;
 import br.com.crawler.model.JSoupCrawlerImpl;
 import br.com.crawler.services.RedditCrawlerService;
@@ -43,6 +44,11 @@ public class DependencyInjectionConfiguration {
 		command.put("/start", new StartTelegraCommand(mrCrawler));
 		
 		return command;
+	}
+	
+	@Bean
+	public TelegramService telegramService(TelegramBot mrCrawler) {
+		return new TelegramService(mrCrawler);
 	}
 	
 	@Bean

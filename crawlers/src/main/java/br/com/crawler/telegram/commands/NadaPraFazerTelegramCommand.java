@@ -3,6 +3,7 @@ package br.com.crawler.telegram.commands;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Message;
@@ -33,7 +34,7 @@ public class NadaPraFazerTelegramCommand implements TelegramCommand {
 			
 			String params = message.text().replace("/nadaprafazer", "").trim();
 		
-			List<String> keywords = params.isEmpty() ? Collections.emptyList() : Arrays.asList(params.split(";"));
+			List<String> keywords = params.isEmpty() ? Collections.emptyList() : Arrays.asList(params.split(";")).stream().map(s -> s.trim()).collect(Collectors.toList());
 			
 			List<Subreddit> subreddits = this.redditService.getSubredditsData(keywords);
 			

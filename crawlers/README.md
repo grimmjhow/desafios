@@ -29,3 +29,8 @@ Construir um robô que nos envie essa lista via Telegram sempre que receber o co
 ### Dicas
  - Use https://old.reddit.com/
  - Qualquer método para coletar os dados é válido. Caso não saiba por onde começar, procure por JSoup (Java), SeleniumHQ (Java), PhantomJS (Javascript) e Beautiful Soup (Python).
+
+## Como utilizar a aplicação
+ - Para gerar um crawler.jar da aplicação utilize o comando mvn install, ele vai gerar um arquivo com o nome crawler.jar
+  - Com o comando java -jar crawler.jar wordlnews;cats ele vai retornar no output os subreddits que estão bombando
+  - Após dar o start na aplicação entre no Tele
